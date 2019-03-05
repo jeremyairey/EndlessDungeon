@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<TileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tiles>
+    <TileData name="Quicksand">
+      <rare_type>Trap</rare_type>
+      <trap_type>Quicksand</trap_type>
+      <ID>0</ID>
+      <Unique>false</Unique>
+      <isDungeon>false</isDungeon>
+      <Probability>10</Probability>
+      <DynamicProbability>0</DynamicProbability>
+      <Description>Your movement has been slowed</Description>
+      <Commentary>You've stepped in Quicksand, your movement is slowed</Commentary>
+      <stat1>0</stat1>
+      <stat2>0</stat2>
+      <stat3>0</stat3>
+      <special1>3</special1>
+      <special2>0</special2>
+      <special3>0</special3>
+      <special4>0</special4>
+      <special5>0</special5>
+      <LastBoardIndex>0</LastBoardIndex>
+      <TileImage>Tile_TrapQuicksand</TileImage>
+    </TileData>
+    <TileData name="Bandit Camp">
+      <rare_type>Trap</rare_type>
+      <trap_type>Robbed</trap_type>
+      <ID>1</ID>
+      <Unique>false</Unique>
+      <isDungeon>false</isDungeon>
+      <Probability>10</Probability>
+      <DynamicProbability>0</DynamicProbability>
+      <Description>Chris has robbed you.</Description>
+      <Commentary>You have been ROBBED by a pack of Bandit's.</Commentary>
+      <stat1>300</stat1>
+      <stat2>0</stat2>
+      <stat3>0</stat3>
+      <special1>0</special1>
+      <special2>0</special2>
+      <special3>0</special3>
+      <special4>0</special4>
+      <special5>0</special5>
+      <LastBoardIndex>0</LastBoardIndex>
+      <TileImage>Tile_TrapRobbed</TileImage>
+    </TileData>
+    <TileData name="UnCommon 1">
+      <rare_type>UnCommon</rare_type>
+      <trap_type>None</trap_type>
+      <ID>2</ID>
+      <Unique>false</Unique>
+      <isDungeon>false</isDungeon>
+      <Probability>10</Probability>
+      <DynamicProbability>0</DynamicProbability>
+      <Description>Need Description</Description>
+      <Commentary>Common Tile 1</Commentary>
+      <stat1>0</stat1>
+      <stat2>0</stat2>
+      <stat3>0</stat3>
+      <special1>0</special1>
+      <special2>0</special2>
+      <special3>0</special3>
+      <special4>0</special4>
+      <special5>0</special5>
+      <LastBoardIndex>0</LastBoardIndex>
+      <TileImage>tile_uncommon</TileImage>
+    </TileData>
+  </Tiles>
+</TileCollection>
