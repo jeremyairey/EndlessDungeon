@@ -106,20 +106,7 @@ public static class Global
         myHudIcons = -1
     }
 
-    //Rarity Types
-    public enum RarityTypes
-    {
-        Plain,
-        Common,
-        UnCommon,
-        Rare,
-        Epic,
-        Legendary,
-        Godly,
-        Trap,
-        Encounter
-
-    }
+ 
 
     //Theme Types
     public enum ThemeTypes
@@ -170,23 +157,9 @@ public static class Global
         Warrior,
         Mage,
         Hunter,
-        Druid
-    }
-
-    //Afflictions
-    public enum AfflictionTypes
-    {
-        None,
-        Air,
-        Earth,
-        Fire,
-        Water,
-        Poison,
-        Disease,
-        Cold,
-        Astral,
-        Nether,
-        Arcane
+        Druid,
+        Rogue,
+        Bard
     }
 
     public enum StatTypes
@@ -198,35 +171,65 @@ public static class Global
         Dexterity,
         Constitution,
         Charisma
-
     }
-
-
-
-    public enum SpellTypes
-    {
-        None,
-        Bolt,
-        AoE,
-        Root,
-        Buff,
-        DirectDamage,
-        Dot,
-        Heal
-
-    }
-
-
-
 
     
+    //Quest Types
+    public enum QuestType
+    {
+        None,
+        Slay,
+        Steal,
+        Save
+    }
+
+    //******************************************
+    //TILE INFO
+    //******************************************
+
+    //Rarity Types
+    public enum RarityTypes
+    {
+        Standard,
+        Rare,
+        Epic
+    }
+
+    //If a tile is opened or locked by a glyph or a ward.
+    public enum TileAccess
+    {
+        Open,
+        Ward,
+        Glyph
+    }
+
+
+    public enum TileTypes {
+        Blank,
+        Cave,
+        Crypt,
+        DeadEnd,
+        Gulag,
+        Room,
+        Shrine,
+        Tower
+    }
+
+    public enum TileAccessRewards
+    {
+        None,
+        Ward,
+        Lock,
+        Both
+    }
+
+
 	
 public static int GetTileId(rds.RDSTable theTable, int hitResults)
 	{
 	
 		theTable.rdsCount=hitResults;
-		
-		
+			
 		foreach (RarityTables resultTrap in theTable.rdsResult)	 
 		{ 
 		
