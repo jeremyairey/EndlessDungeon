@@ -13,10 +13,20 @@ public class TileInfo
     private GameObject _boardTile;
     private Texture _tileTexture;
     private Texture _borderTexture;
+    //private Texture _tileImage;
     public Vector3 theobject;
     private string _themeName;
     private int _ID;            //Index number for
-    private string _description;
+
+
+    private string _descriptionEntry;
+    private string _descriptionWaiting;
+    private string _descriptionFinal;
+
+
+
+
+
     private Texture _icon;
     private Texture _groundTexture;
     private Texture _groundTextureBorder;
@@ -38,9 +48,12 @@ public class TileInfo
 
     public TileInfo()
     {
-        _rarity = Global.RarityTypes.Plain;
+        _rarity = Global.RarityTypes.None;
         _tileName = "Default tileName";
-        _description = "Default Description";
+        _descriptionEntry = "Default Entry Description";
+        _descriptionWaiting = "Default Waiting Description";
+        _descriptionFinal = "Default Final Description";
+
         _ID = 0;
         theobject = new Vector3(10, 10, 10);
         _zoomTrigger = false;
@@ -65,7 +78,7 @@ public class TileInfo
         //	GUI.Label(new Rect(10, 10, 100, 20)," HATPIHSDIINDINW");
 
         Debug.Log("NAME: " + TileName);
-        Debug.Log("DESC: " + Description);
+        Debug.Log("DESC: " + DescriptionEntry);
 
         //Debug.Log("MASTER: " + MasterPropPath);
         //Debug.Log("Center: " + CenterPropPath);
@@ -90,9 +103,13 @@ public class TileInfo
     public void CleanTileRecord()
     {
 
-        _rarity = Global.RarityTypes.Plain;
+        _rarity = Global.RarityTypes.None;
         _tileName = "Default tileName";
-        _description = "Default Description";
+
+        _descriptionEntry = "Default Entry Description";
+        _descriptionWaiting = "Default Waiting Description";
+        _descriptionFinal = "Default Final Description";
+
         _ID = 0;
         theobject = new Vector3(10, 10, 10);
         _zoomTrigger = false;
@@ -140,11 +157,25 @@ public class TileInfo
     }
 
 
-    public string Description
+    public string DescriptionEntry
     {
-        get { return _description; }
-        set { _description = value; }
+        get { return _descriptionEntry; }
+        set { _descriptionEntry = value; }
     }
+
+    public string DescriptionWaiting
+    {
+        get { return _descriptionWaiting; }
+        set { _descriptionWaiting = value; }
+    }
+
+
+    public string DescriptionFinal
+    {
+        get { return _descriptionFinal; }
+        set { _descriptionFinal = value; }
+    }
+
 
 
     public int ID
@@ -158,6 +189,16 @@ public class TileInfo
         get { return _icon; }
         set { _icon = value; }
     }
+
+
+    /*
+    public Texture TileImage
+    {
+        get { return _tileImage; }
+        set { _tileImage = value; }
+    }
+
+    */
 
     //Used for the default tile face
     public Texture SetMyTexture
@@ -225,19 +266,9 @@ public class TileInfo
             case Global.TrapTypes.None:
                 break;
 
-            case Global.TrapTypes.Robbed:
-                TileRecord[index].SetMyTexture = GenericTexture[(int)Global.RarityTypes.Trap];      //Apply our texture
-                TileRecord[index].TileName = "ROBBED:  Oh No, you've been Robbed";                          //Set info about the tile!
-                TileRecord[index].Description = "Some Bandits came along and stole yer booty!"; //Color description.
-                break;
-
-            case Global.TrapTypes.Quicksand:
-                TileRecord[index].SetMyTexture = GenericTexture[8];
-                TileRecord[index].TileName = "QUICKSAND:  Your movement has been slowed";
-                TileRecord[index].Description = "You feel bogged down!";
-                break;
         }
 
+             
     }
 
 

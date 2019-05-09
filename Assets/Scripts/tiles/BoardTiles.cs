@@ -73,7 +73,7 @@ public class BoardTiles : MonoBehaviour
 
 
         ParseXMLtoTables();                                                              // Process the XML and read it into a table.
-        PopulateBoard();                                                                //Generate new tile board
+       //JWA 2 PopulateBoard();                                                                //Generate new tile board
     }
 
     //Process the XML data into the Rarity Tables - stores the tileID and the probability.
@@ -115,9 +115,9 @@ public class BoardTiles : MonoBehaviour
                     Global.TileTableRarityTrap.AddEntry(new RarityTables(ThisTile.Tiles[i].ID), ThisTile.Tiles[i].Probability);
                     break;
 
-                case Global.RarityTypes.Encounter:
-                    Global.TileTableRarityEncounter.AddEntry(new RarityTables(ThisTile.Tiles[i].ID), ThisTile.Tiles[i].Probability);
-                    break;
+                //case Global.RarityTypes.Encounter:
+                  //  Global.TileTableRarityEncounter.AddEntry(new RarityTables(ThisTile.Tiles[i].ID), ThisTile.Tiles[i].Probability);
+//                    break;
                                        
 
                 default:
@@ -160,7 +160,7 @@ public class BoardTiles : MonoBehaviour
 
 
                 TileRecord[x].CleanTileRecord();
-                TileRecord[x].Rarity=Global.RarityTypes.Plain;
+                TileRecord[x].Rarity=Global.RarityTypes.None;
                 TileRecord[x].SetMyTexture = Resources.Load(Global.TileTexturePath + "BLANK") as Texture;
                 TileRecord[x].SetMyBorderTexture = Resources.Load(Global.TileTexturePath + "BLANK") as Texture;
 
@@ -225,6 +225,12 @@ public class BoardTiles : MonoBehaviour
         // roll does not matter, just need to know the tileIndex - and the board tile index.
         //Let's ROLL our tile out of the table.  	
 
+
+        //JWA2
+        return (1);
+                
+        
+
         var gameTile = (RarityTables)Global.TileTableRarity.rdsResult.First();
 
         //Set our theme - not really used right now.
@@ -233,7 +239,12 @@ public class BoardTiles : MonoBehaviour
         //All tiles have these fields	
         TileRecord[index].TileName = ThisTile.Tiles[gameTile._tileID].Name;
         TileRecord[index].Rarity = ThisTile.Tiles[gameTile._tileID].rare_type;
-        TileRecord[index].Description = ThisTile.Tiles[gameTile._tileID].Description;
+        TileRecord[index].DescriptionEntry = ThisTile.Tiles[gameTile._tileID].DescriptionEntry;
+        TileRecord[index].DescriptionWaiting = ThisTile.Tiles[gameTile._tileID].DescriptionWaiting;
+        TileRecord[index].DescriptionFinal = ThisTile.Tiles[gameTile._tileID].DescriptionFinal;
+
+
+
         TileRecord[index].SetMyTexture = Resources.Load(Global.TileTexturePath + ThisTile.Tiles[gameTile._tileID].TileImage) as Texture;
         
         
@@ -271,15 +282,11 @@ public class BoardTiles : MonoBehaviour
                 break;
 
 
-            case Global.RarityTypes.Plain:
+            case Global.RarityTypes.None:
 
                 break;
 
-
-            case Global.RarityTypes.Encounter:
-
-                break;
-
+                            
             default:
                 Debug.Log("Could not find item rank");
                 break;

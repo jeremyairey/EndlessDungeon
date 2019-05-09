@@ -5,7 +5,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -177,23 +176,66 @@ public class TilePacks : EditorWindow
         //NAME	
         ThisTile.Tiles[ActiveTile].Name = EditorGUILayout.TextField("Name", ThisTile.Tiles[ActiveTile].Name);
 
-        //RARITY
+        //RARITY TYPE
         ThisTile.Tiles[ActiveTile].rare_type = (Global.RarityTypes)EditorGUILayout.EnumPopup("RARITY", ThisTile.Tiles[ActiveTile].rare_type);
+
+        //TILE TYPE
+        ThisTile.Tiles[ActiveTile].tile_type = (Global.TileTypes)EditorGUILayout.EnumPopup("TILES", ThisTile.Tiles[ActiveTile].tile_type);
+
+
+        //Probability
+        ThisTile.Tiles[ActiveTile].Probability = EditorGUILayout.FloatField("Probability:", ThisTile.Tiles[ActiveTile].Probability, GUILayout.MaxWidth(200));
+
+
+        // Description Entry
+        ThisTile.Tiles[ActiveTile].DescriptionEntry = EditorGUILayout.TextField("Entry Text", ThisTile.Tiles[ActiveTile].DescriptionEntry);
+
+        // Description Waiting
+        ThisTile.Tiles[ActiveTile].DescriptionWaiting = EditorGUILayout.TextField("Waiting Text", ThisTile.Tiles[ActiveTile].DescriptionWaiting);
+
+        // Description Final
+        ThisTile.Tiles[ActiveTile].DescriptionFinal = EditorGUILayout.TextField("Final Text", ThisTile.Tiles[ActiveTile].DescriptionFinal);
+
+        // Commentary
+        ThisTile.Tiles[ActiveTile].Commentary = EditorGUILayout.TextField("Commentary", ThisTile.Tiles[ActiveTile].Commentary);
+
+
+        //hasWard
+        ThisTile.Tiles[ActiveTile].hasWard = (bool)EditorGUILayout.Toggle("Has Ward", ThisTile.Tiles[ActiveTile].hasWard);
+
+        //hasLock
+        ThisTile.Tiles[ActiveTile].hasLock = (bool)EditorGUILayout.Toggle("Has Lock", ThisTile.Tiles[ActiveTile].hasLock);
+
+        //hasKeyReward
+        ThisTile.Tiles[ActiveTile].hasKeyReward = (bool)EditorGUILayout.Toggle("Key Reward", ThisTile.Tiles[ActiveTile].hasKeyReward);
+
+        //hasSpellReward
+        ThisTile.Tiles[ActiveTile].hasSpellReward = (bool)EditorGUILayout.Toggle("Spell Reward", ThisTile.Tiles[ActiveTile].hasSpellReward);
+
+
+         
+        //Tile Image  JWA may need to fix
+         ThisTile.Tiles[ActiveTile].TileImage= EditorGUILayout.TextField("my text",ThisTile.Tiles[ActiveTile].TileImage);
+
+
 
         //Dungeon entry?
         ThisTile.Tiles[ActiveTile].isDungeon = (bool)EditorGUILayout.Toggle("DungeonActivator", ThisTile.Tiles[ActiveTile].isDungeon);
 
-       //Stat 1	
+
+        // Stat 1
         ThisTile.Tiles[ActiveTile].stat1 = EditorGUILayout.IntField("Stat1:", ThisTile.Tiles[ActiveTile].stat1, GUILayout.MaxWidth(200));
-     
+
         //Special1	
         ThisTile.Tiles[ActiveTile].special1 = EditorGUILayout.IntField("Spec1:", ThisTile.Tiles[ActiveTile].special1, GUILayout.MaxWidth(200));
         //Special2	
         ThisTile.Tiles[ActiveTile].special2 = EditorGUILayout.IntField("Spec2:", ThisTile.Tiles[ActiveTile].special2, GUILayout.MaxWidth(200));
-      
 
 
-         GUILayout.EndScrollView();  //JWA
+
+
+
+        GUILayout.EndScrollView();  //JWA
          
         //GUILayout.FlexibleSpace();
 
@@ -231,18 +273,7 @@ public class TilePacks : EditorWindow
         EditorGUILayout.LabelField("");
 
 
-        // Description
-        EditorGUILayout.LabelField("Description:");
-
-        ThisTile.Tiles[ActiveTile].Description = EditorGUILayout.TextArea(ThisTile.Tiles[ActiveTile].Description);
-
-        // Commentary
-        EditorGUILayout.LabelField("Commentary:");
-
-
-        ThisTile.Tiles[ActiveTile].Commentary = EditorGUILayout.TextArea(ThisTile.Tiles[ActiveTile].Commentary);
-
-
+        
         EditorGUILayout.EndScrollView();	
 
         //GUILayout.FlexibleSpace();

@@ -190,9 +190,14 @@ public static class Global
     //Rarity Types
     public enum RarityTypes
     {
-        Standard,
+        None,
+        Common,
+        UnCommon,
         Rare,
-        Epic
+        Epic,
+        Legendary,
+        Godly,
+        Trap
     }
 
     //If a tile is opened or locked by a glyph or a ward.
@@ -248,3 +253,31 @@ public static int GetTileId(rds.RDSTable theTable, int hitResults)
 
 }//End of Class
 
+
+/*
+ * 
+ * 
+ <?xml version ="1.0"?>
+<TileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tiles>
+    <TileData name=""Godly 1">
+      <rare_type>Common</rare_type>
+      <tile_type>Cave</tile_type>
+      <ID>0</ID>
+      <isDungeon>false</isDungeon>
+      <Probability>1</Probability>
+      <DescriptionEntry>Entry Desc</DescriptionEntry>
+      <DescriptionWaiting>I'm waiting</DescriptionWaiting>
+      <DescriptionFinal>Final Desc</DescriptionFinal>
+      <Commentary>this is commentary</Commentary>
+      <stat1>1</stat1>
+      <special1>1</special1>
+      <special2>2</special2>
+                    
+    </TileData>
+    
+  </Tiles>
+</TileCollection>
+*/
+
+ 

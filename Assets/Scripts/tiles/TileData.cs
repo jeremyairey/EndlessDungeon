@@ -13,8 +13,9 @@ public class TileData
     [XmlAttribute("name")]
     public int ID;                                                      //Tile ID
     public string Name;                                                 //Name of Tile
-    public Global.RarityTypes rare_type = Global.RarityTypes.Standard;  //Default to standard rarity
+    public Global.RarityTypes rare_type = Global.RarityTypes.Common;  //Default to standard rarity
     public Global.TileTypes tile_type = Global.TileTypes.Blank;         //Default is a blank tile
+
     public float Probability;                                           //Chance for this type of tile room to spawn.
     public string DescriptionEntry;                                     //What it says when you first walk into a room.... THEN...
     public string DescriptionWaiting;                                   //Now time is ticking and you should do something because...
@@ -24,5 +25,9 @@ public class TileData
     public bool hasLock = false;                                        //Is this room locked with a lock.
     public bool hasKeyReward = false;                                   //Did we spawn a key?
     public bool hasSpellReward = false;                                 //Did we spawn a spell?
-           
-}
+    public string TileImage;
+    public bool isDungeon = false;                                      //Is this a dungeon tile
+    public int stat1;
+    public int special1;
+    public int special2;
+    }

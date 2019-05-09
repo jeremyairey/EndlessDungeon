@@ -8,6 +8,8 @@ public class GeneratePlayField : MonoBehaviour
     public GameObject[] Tiles;
     public enum TileLocked { Locked, Open};
     
+
+
     // Start is called before the first frame update
     void Start()
     {
