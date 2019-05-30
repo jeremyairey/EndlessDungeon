@@ -12,8 +12,10 @@ public GameObject[] Tiles;
     public GameObject parentRef;
     public GameObject tilePrefab;  //Playfield tile.
 
-    //public int playLocations = new int[3, 3];
-    public int[,] Grid;
+       
+
+    public List<GameObject> tileObjects = new List<GameObject>();
+
 
     public int Columns=3;  // How many across
     public int Rows = 3;   // How many down
@@ -28,8 +30,7 @@ public GameObject[] Tiles;
     // Start is called before the first frame update
     void Start()
     {
-       Grid = new int[Columns, Rows];
-        
+           
 
         float currentX = posX;
         float currentY = posY;
@@ -45,13 +46,14 @@ public GameObject[] Tiles;
         //Tile9: 105,-10
         int count = 0;
 
-        for(int i=0; i< Columns; i++)
+        for(int i=0; i< Rows; i++)
         {
             
-            for(int j=0; j< Rows; j++)
+            for(int j=0; j< Columns; j++)
             {
 
                 count++;
+    
                 GameObject g = (GameObject)Instantiate(tilePrefab, transform.position, Quaternion.identity);
 
                 g.transform.SetParent(parentRef.transform); //false?
@@ -59,26 +61,50 @@ public GameObject[] Tiles;
                 g.transform.localScale=parentRef.transform.localScale;
                 g.gameObject.name = "Tile_" + count;
 
-                Debug.Log(parentRef.transform.localScale);
-                Debug.Log("Tile [ " + count + "]  X:" + currentX + " Y:" + currentY );
+
+                tileObjects.Add(g);
+
+
+                //Debug.Log(parentRef.transform.localScale);
+                //Debug.Log("Tile [ " + count + "]  X:" + currentX + " Y:" + currentY );
                 currentX += stepX;
                 
             }
             currentX = posX;
             currentY += stepY;
         }
-     
+
+        SpawnTile(1);
+        SpawnTile(9);
+
     }
 
 
-    private void SpawnTile(int whichTile)
+    private void SpawnTile(int whichtile)
     {
 
+        whichtile--;   //To adjust for the 1-9 display we want
+
+        //tileObjects[whichtile].GetComponent<Button>.colors
+        //WIP
+
+
+        tileObjects[whichtile].gameObject.name = "done";
         
 
 
-        
-        
+        /*
+
+        GameObject g = (GameObject)Instantiate(tilePrefab, transform.position, Quaternion.identity);
+        g.transform.SetParent(parentRef.transform); //false?
+        g.transform.localPosition = new Vector2(currentX, currentY);
+        g.transform.localScale = parentRef.transform.localScale;
+        g.gameObject.name = "Tile_" + count;
+
+    */
+
+
+
     }
 
 
