@@ -20,20 +20,48 @@ public GameObject[] Tiles;
     public int Columns=3;  // How many across
     public int Rows = 3;   // How many down
 
+    public float playfieldWidth;
+    public float playfieldHeight;
+
     public float posX = -105; //x
     public float posY = 200;   //y
     public int stepX=105;
     public int stepY = -105;
 
+    public int spacer = 10;
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
-           
+        //-105,200
+        //105,-105
+
+        float adjWidth;
+        float adjHeight;
+
+        
 
         float currentX = posX;
         float currentY = posY;
+
+        playfieldWidth = parentRef.GetComponent<RectTransform>().sizeDelta.x;   // get size of panel width  --> 310
+        playfieldHeight = parentRef.GetComponent<RectTransform>().sizeDelta.y;  // get size of panel height --> 300
+        
+
+
+        adjWidth = playfieldWidth - (spacer * Rows);       // how much width we have to work with for each button   220
+        adjHeight = playfieldHeight - (spacer * Columns);  // how much height we have to work with for each button  210
+
+        float buttonSizeX = adjWidth / Columns;
+        float buttonSizeY = adjHeight / Rows;
+
+
+        Debug.Log("button size X " + buttonSizeX);
+        Debug.Log("button size Y " + buttonSizeY);
+
+
 
         //Tile1: -105,200
         //Tile2: 0,200
@@ -64,6 +92,7 @@ public GameObject[] Tiles;
 
                 tileObjects.Add(g);
 
+        
 
                 //Debug.Log(parentRef.transform.localScale);
                 //Debug.Log("Tile [ " + count + "]  X:" + currentX + " Y:" + currentY );
