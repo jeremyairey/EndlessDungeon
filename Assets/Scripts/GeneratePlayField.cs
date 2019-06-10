@@ -1,56 +1,54 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+
+using System.Linq;
+using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
 public class GeneratePlayField : MonoBehaviour
 {
-    
-public GameObject[] Tiles;
+    public TileContainer ButtonTiles;
+
+
+    public GameObject[] Tiles;
     public enum TileLocked { Locked, Open};
 
     public GameObject parentRef;
     public GameObject tilePrefab;  //Playfield tile.
 
-       
-
     public List<GameObject> tileObjects = new List<GameObject>();
-
 
     public int Columns=3;  // How many across
     public int Rows = 3;   // How many down
 
-    public float playfieldWidth;
-    public float playfieldHeight;
-
-    public float posX = -105; //x
-    public float posY = 200;   //y
-    public int stepX=105;
-    public int stepY = -105;
+    float playfieldWidth;   // Width of playfield where we draw the buttons
+    float playfieldHeight;  // Height of playfield where we draw the buttons
+    float posX = 0;       //Starting position of tile in X   
+    float posY = 0;       //Starting position of tiel in Y
+    float stepX = 0;      //
+    float stepY = 0;    
 
     public int spacer = 10;
-    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //-105,200
-        //105,-105
+        
+
 
         float adjWidth;
         float adjHeight;
-
-        
-
         float currentX = posX;
         float currentY = posY;
 
         playfieldWidth = parentRef.GetComponent<RectTransform>().sizeDelta.x;   // get size of panel width  --> 310
         playfieldHeight = parentRef.GetComponent<RectTransform>().sizeDelta.y;  // get size of panel height --> 300
-        
-
-
         adjWidth = playfieldWidth - (spacer * Rows);       // how much width we have to work with for each button   220
         adjHeight = playfieldHeight - (spacer * Columns);  // how much height we have to work with for each button  210
 
@@ -58,23 +56,21 @@ public GameObject[] Tiles;
         float buttonSizeY = adjHeight / Rows;
 
 
-        Debug.Log("button size X " + buttonSizeX);
-        Debug.Log("button size Y " + buttonSizeY);
+        //Debug.Log("button size X " + buttonSizeX);
+        //Debug.Log("button size Y " + buttonSizeY);
+        //Debug.Log("adj Width " + tilePrefab.GetComponent<RectTransform>().rect.width);
+        //Debug.Log("adj Height " + tilePrefab.GetComponent<RectTransform>().rect.height);
+        //Debug.Log("current X " + currentX);
+        //Debug.Log("current Y " + currentY);
 
-
-
-        //Tile1: -105,200
-        //Tile2: 0,200
-        //Tile3: 105,200
-        //Tile4: -105,95
-        //Tile5: 0,95
-        //Tile6: 105,95
-        //Tile7: -105,-10
-        //Tile8: 0,-10
-        //Tile9: 105,-10
+                        
         int count = 0;
+               
+        stepX = buttonSizeX+spacer;
+        stepY = buttonSizeY+spacer;
 
-        for(int i=0; i< Rows; i++)
+
+        for (int i=0; i< Rows; i++)
         {
             
             for(int j=0; j< Columns; j++)
@@ -86,25 +82,25 @@ public GameObject[] Tiles;
 
                 g.transform.SetParent(parentRef.transform); //false?
                 g.transform.localPosition = new Vector2(currentX, currentY);
-                g.transform.localScale=parentRef.transform.localScale;
+                g.transform.localScale = new Vector3(buttonSizeX / tilePrefab.GetComponent<RectTransform>().rect.width, buttonSizeY / tilePrefab.GetComponent<RectTransform>().rect.height, parentRef.transform.localScale.z);
                 g.gameObject.name = "Tile_" + count;
 
-
                 tileObjects.Add(g);
-
-        
-
                 //Debug.Log(parentRef.transform.localScale);
                 //Debug.Log("Tile [ " + count + "]  X:" + currentX + " Y:" + currentY );
                 currentX += stepX;
                 
             }
             currentX = posX;
-            currentY += stepY;
+            currentY -= stepY;
         }
 
         SpawnTile(1);
-        SpawnTile(9);
+        SpawnTile(5);
+
+        DecorateTile(1);
+        DecorateTile(2);
+        DecorateTile(3);
 
     }
 
@@ -117,10 +113,10 @@ public GameObject[] Tiles;
         //tileObjects[whichtile].GetComponent<Button>.colors
         //WIP
 
-
         tileObjects[whichtile].gameObject.name = "done";
-        
 
+
+        tileObjects[whichtile].GetComponent<Image>().color = new Color32(255, 165, 0, 255);
 
         /*
 
@@ -137,8 +133,42 @@ public GameObject[] Tiles;
     }
 
 
+    //************************************************
+    //*****
+    //************************************************
+    
+    public float  DecorateTile( int tileindex)
+    {
+
+        //tileObjects[tileindex].gameObject.name = ButtonTiles.Tiles[tileindex].Name;
+        
+
+        tileObjects[tileindex].GetComponentInChildren<Text>().text= ButtonTiles.Tiles[tileindex].Name;
+
+        Debug.Log(ButtonTiles.Tiles[tileindex].Name);
+
+
+        //  TileRecord[index].TileName = ThisTile.Tiles[gameTile._tileID].Name;
+        //  TileRecord[index].Rarity = ThisTile.Tiles[gameTile._tileID].rare_type;
+        //  TileRecord[index].DescriptionEntry = ThisTile.Tiles[gameTile._tileID].DescriptionEntry;
+        //  TileRecord[index].DescriptionWaiting = ThisTile.Tiles[gameTile._tileID].DescriptionWaiting;
+        //  TileRecord[index].DescriptionFinal = ThisTile.Tiles[gameTile._tileID].DescriptionFinal;
+        //  TileRecord[index].SetMyTexture = Resources.Load(Global.TileTexturePath + ThisTile.Tiles[gameTile._tileID].TileImage) as Texture;
+
+
+        return (1);
+    }
+
+
     // Update is called once per frame
     void Update()
     {
     }
+
+
+    private void Awake()
+    {
+        ButtonTiles = TileContainer.Load(Path.Combine(Application.dataPath, "Tiles.xml"));
+    }
+
 }

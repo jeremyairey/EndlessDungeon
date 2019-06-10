@@ -58,5 +58,19 @@
       <special1>4</special1>
       <special2>6</special2>
     </TileData>
+    <TileData name="3">
+      <Name>Jprice</Name>
+      <rare_type>Common</rare_type>
+      <tile_type>Blank</tile_type>
+      <Probability>0</Probability>
+      <hasWard>false</hasWard>
+      <hasLock>false</hasLock>
+      <hasKeyReward>false</hasKeyReward>
+      <hasSpellReward>false</hasSpellReward>
+      <isDungeon>false</isDungeon>
+      <stat1>0</stat1>
+      <special1>0</special1>
+      <special2>0</special2>
+    </TileData>
   </Tiles>
 </TileCollection>

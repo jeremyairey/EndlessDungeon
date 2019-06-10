@@ -11,16 +11,16 @@ using rds;
 public static class Global
 {
 
-    public static int ActionButtonDiceSlots = 12; // Lets exclude (0) from this.
+    //public static int ActionButtonDiceSlots = 12; // Lets exclude (0) from this.
 
 
 
-    public static GameObject TargetEnemy = null;
+    //public static GameObject TargetEnemy = null;
     //public static SpellContainer SpellBook;
 
 
-    public static GameObject[] positionArray = new GameObject[ActionButtonDiceSlots + 1];  //Dice Slots in Actionbar
-
+    // public static GameObject[] positionArray = new GameObject[ActionButtonDiceSlots + 1];  //Dice Slots in Actionbar
+     
     //public static TPAtlas myAtlas;          //Atlas for ICONS
     //public static TPAtlas myHudIcons;
 
@@ -30,11 +30,11 @@ public static class Global
 
 
     //This will set the position, rotation and scale of the 'enhance tile'
-    public static Vector3 TileHighlightPosition = new Vector3(114, 22, 0);
-    public static Vector3 TileHighlightRotation = new Vector3(0, 348, 0);
-    public static Vector3 TileHighlightScale = new Vector3(192, 10, 192);
-    public static int TileLastIndex = 99;
-    public static bool TileZoomed = false;
+    //public static Vector3 TileHighlightPosition = new Vector3(114, 22, 0);
+    //public static Vector3 TileHighlightRotation = new Vector3(0, 348, 0);
+    //public static Vector3 TileHighlightScale = new Vector3(192, 10, 192);
+    //public static int TileLastIndex = 99;
+    //public static bool TileZoomed = false;
     //Player character position on zoomed tile
     //public static Vector3 CharHighlightPosition = new Vector3(125, 22, -70);
     //public static Vector3 CharHighlightRotation = new Vector3(0, 0, 0);
@@ -56,31 +56,31 @@ public static class Global
 
     //  Global Variables	
 
-    public static bool characterMoving = false;
-    public static bool firstrun = true;         //is this the very first time we've run the 'game'  Draws blank tiles underneath player.
-    public static bool rolling = false;         //Is the dice actively rolling about.
-    public static bool first_roll_ever = true;  //Is this the first time we've ever rolled the dice.
-    public static bool detectTile = false;      //Is it time to detect what tile we are standing own.
-    public static int standingOnTileIndex = 99; // Default value to check if we'
-    public static int BoardTilesToGenerate = 32;  //How many tiles do we generate?   --THIS IS CURRENTLY PASSED TO A VARIABLE.
-    public static int BoardTileSize_x = 64;
-    public static int BoardTileSize_y = 10;
-    public static int BoardTileSize_z = 64;
+    //public static bool characterMoving = false;
+    //public static bool firstrun = true;         //is this the very first time we've run the 'game'  Draws blank tiles underneath player.
+    //public static bool rolling = false;         //Is the dice actively rolling about.
+    //public static bool first_roll_ever = true;  //Is this the first time we've ever rolled the dice.
+    //public static bool detectTile = false;      //Is it time to detect what tile we are standing own.
+    //public static int standingOnTileIndex = 99; // Default value to check if we'
+    //public static int BoardTilesToGenerate = 32;  //How many tiles do we generate?   --THIS IS CURRENTLY PASSED TO A VARIABLE.
+    //public static int BoardTileSize_x = 64;
+    //public static int BoardTileSize_y = 10;
+    //public static int BoardTileSize_z = 64;
 
 
     //Combat information
-    public static bool inCombat = false;
-    public static bool inVictoryPhase = false;
-    public static int numberOfEnemies = 1;
+    //public static bool inCombat = false;
+    //public static bool inVictoryPhase = false;
+    //public static int numberOfEnemies = 1;
 
 
 
-    public static int DIR_UP = 1;           //Zooming in on a tile or opening something
-    public static int DIR_DOWN = 0;     //Zooming back to normal or closing something
+    //public static int DIR_UP = 1;           //Zooming in on a tile or opening something
+    //public static int DIR_DOWN = 0;     //Zooming back to normal or closing something
 
 
-    public static float tilespeed = 1.0f; // how many seconds to move.
-    public static int lastRoll;         //Last dice value we rolled
+    //public static float tilespeed = 1.0f; // how many seconds to move.
+    //public static int lastRoll;         //Last dice value we rolled
 
     //Converts a string number to an int number.
     public static int StringToInt(string instring)
