@@ -78,6 +78,7 @@ public class GeneratePlayField : MonoBehaviour
 
                 count++;
     
+
                 GameObject g = (GameObject)Instantiate(tilePrefab, transform.position, Quaternion.identity);
 
                 g.transform.SetParent(parentRef.transform); //false?
@@ -89,19 +90,33 @@ public class GeneratePlayField : MonoBehaviour
                 //Debug.Log(parentRef.transform.localScale);
                 //Debug.Log("Tile [ " + count + "]  X:" + currentX + " Y:" + currentY );
                 currentX += stepX;
-                
             }
             currentX = posX;
             currentY -= stepY;
         }
 
-        SpawnTile(1);
-        SpawnTile(5);
+        SetRarity();
+               
+    }
 
-        DecorateTile(1);
-        DecorateTile(2);
-        DecorateTile(3);
 
+    void SetRarity()
+    {
+
+        for(int i=0; i<=(Columns*Rows); i++)
+        {
+            //Debug.Log("# " + (Columns * Rows) + " of " + i + " rarity: " + ButtonTiles.Tiles[i].rare_type);
+
+          //  Debug.Log(ButtonTiles.Tiles.Count);
+
+
+            if (i <= ButtonTiles.Tiles.Count-1 &&  ButtonTiles.Tiles[i].rare_type == Global.RarityTypes.Legendary)
+            {
+                tileObjects[i].GetComponent<Image>().color = new Color32(255, 165, 0, 255);
+                DecorateTile(i);
+            }
+        }
+                     
     }
 
 
@@ -113,9 +128,7 @@ public class GeneratePlayField : MonoBehaviour
         //tileObjects[whichtile].GetComponent<Button>.colors
         //WIP
 
-        tileObjects[whichtile].gameObject.name = "done";
-
-
+        //tileObjects[whichtile].gameObject.name = "done";
         tileObjects[whichtile].GetComponent<Image>().color = new Color32(255, 165, 0, 255);
 
         /*

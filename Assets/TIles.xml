@@ -3,7 +3,7 @@
   <Tiles>
     <TileData name="0">
       <Name>Justice</Name>
-      <rare_type>Common</rare_type>
+      <rare_type>Legendary</rare_type>
       <tile_type>Cave</tile_type>
       <Probability>1</Probability>
       <DescriptionEntry>Entry Desc</DescriptionEntry>
@@ -60,7 +60,21 @@
     </TileData>
     <TileData name="3">
       <Name>Jprice</Name>
-      <rare_type>Common</rare_type>
+      <rare_type>Legendary</rare_type>
+      <tile_type>Blank</tile_type>
+      <Probability>0</Probability>
+      <hasWard>false</hasWard>
+      <hasLock>false</hasLock>
+      <hasKeyReward>false</hasKeyReward>
+      <hasSpellReward>false</hasSpellReward>
+      <isDungeon>false</isDungeon>
+      <stat1>0</stat1>
+      <special1>0</special1>
+      <special2>0</special2>
+    </TileData>
+    <TileData name="4">
+      <Name>Marcos</Name>
+      <rare_type>Legendary</rare_type>
       <tile_type>Blank</tile_type>
       <Probability>0</Probability>
       <hasWard>false</hasWard>

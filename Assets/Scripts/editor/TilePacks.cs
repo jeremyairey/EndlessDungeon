@@ -34,7 +34,6 @@ public class TilePacks : EditorWindow
 
 
 
-
     [MenuItem("One Minute Dungeon/Tile Editor")]
     public static void showWindow()
     {
@@ -49,7 +48,6 @@ public class TilePacks : EditorWindow
 
         indexTotal = ThisTile.Tiles.Count;      // How mamy elements we have.
         ActiveTile = indexTotal - 1;                // Set to the last made tile.
-
 
         this.position = new Rect(100, 100, 400, 700);
         currentScrollViewHeight = this.position.height;  //2

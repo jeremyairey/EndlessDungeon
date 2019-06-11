@@ -1232,8 +1232,8 @@ MonoBehaviour:
   parentRef: {fileID: 1454270238}
   tilePrefab: {fileID: 725453379, guid: f761900cb94d6204bb9ce3ef3b1e71f3, type: 3}
   tileObjects: []
-  Columns: 4
-  Rows: 4
+  Columns: 6
+  Rows: 6
   spacer: 5
 --- !u!1001 &1912182456
 PrefabInstance:
