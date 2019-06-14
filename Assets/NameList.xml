@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<NameCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PlayerNames>
+    <Name name="0">
+      <FirstName>Justice</FirstName>
+      <LastName>Justice</LastName>
+      <HouseName>HouseName</HouseName>
+      <Honorific>Honorific</Honorific>
+            
+    </Name>
+  </PlayerNames>
+</NameCollection>
+
+
+ 

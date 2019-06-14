@@ -3,7 +3,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 using UnityEngine;
-// using UnityEditor;
+
 
 [XmlRoot("TileCollection")]
 public class TileContainer
