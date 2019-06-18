@@ -14,6 +14,7 @@ public class GeneratePlayField : MonoBehaviour
 {
     public TileContainer ButtonTiles;
 
+    public Player player;  // Access the player class
 
     public GameObject[] Tiles;
     public enum TileLocked { Locked, Open};
@@ -36,12 +37,11 @@ public class GeneratePlayField : MonoBehaviour
     public int spacer = 10;
 
 
-    // Start is called before the first frame update
+
+    //************************
+    //************************
     void Start()
     {
-        
-
-
         float adjWidth;
         float adjHeight;
         float currentX = posX;
@@ -54,21 +54,13 @@ public class GeneratePlayField : MonoBehaviour
 
         float buttonSizeX = adjWidth / Columns;
         float buttonSizeY = adjHeight / Rows;
-
-
-        //Debug.Log("button size X " + buttonSizeX);
-        //Debug.Log("button size Y " + buttonSizeY);
-        //Debug.Log("adj Width " + tilePrefab.GetComponent<RectTransform>().rect.width);
-        //Debug.Log("adj Height " + tilePrefab.GetComponent<RectTransform>().rect.height);
-        //Debug.Log("current X " + currentX);
-        //Debug.Log("current Y " + currentY);
-
-                        
         int count = 0;
                
         stepX = buttonSizeX+spacer;
         stepY = buttonSizeY+spacer;
 
+        
+        
 
         for (int i=0; i< Rows; i++)
         {
@@ -85,6 +77,11 @@ public class GeneratePlayField : MonoBehaviour
                 g.transform.localPosition = new Vector2(currentX, currentY);
                 g.transform.localScale = new Vector3(buttonSizeX / tilePrefab.GetComponent<RectTransform>().rect.width, buttonSizeY / tilePrefab.GetComponent<RectTransform>().rect.height, parentRef.transform.localScale.z);
                 g.gameObject.name = "Tile_" + count;
+                g.GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    ProcessButton();
+                });
+
 
                 tileObjects.Add(g);
                 //Debug.Log(parentRef.transform.localScale);
@@ -100,6 +97,19 @@ public class GeneratePlayField : MonoBehaviour
     }
 
 
+    //************************
+    //************************
+    public void  ProcessButton()
+    {
+
+        Debug.Log(player.FirstNamesFemale[Random.Range(1,30)] + " " + player.LastNames[Random.Range(1, 50)] + " of " + player.LocationNames[Random.Range(1, 18)]);
+        
+
+    }
+
+
+    //************************
+    //************************
     void SetRarity()
     {
 
@@ -119,7 +129,8 @@ public class GeneratePlayField : MonoBehaviour
                      
     }
 
-
+    //************************
+    //************************
     private void SpawnTile(int whichtile)
     {
 
@@ -158,7 +169,7 @@ public class GeneratePlayField : MonoBehaviour
 
         tileObjects[tileindex].GetComponentInChildren<Text>().text= ButtonTiles.Tiles[tileindex].Name;
 
-        Debug.Log(ButtonTiles.Tiles[tileindex].Name);
+        //Debug.Log(ButtonTiles.Tiles[tileindex].Name);
 
 
         //  TileRecord[index].TileName = ThisTile.Tiles[gameTile._tileID].Name;
@@ -173,7 +184,8 @@ public class GeneratePlayField : MonoBehaviour
     }
 
 
-    // Update is called once per frame
+    //************************
+    //************************
     void Update()
     {
     }

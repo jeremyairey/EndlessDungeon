@@ -1229,6 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a375bd2b198dd52429ae29fb95608ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1454270241}
   Tiles: []
   parentRef: {fileID: 1454270238}
   tilePrefab: {fileID: 725453379, guid: f761900cb94d6204bb9ce3ef3b1e71f3, type: 3}
@@ -1248,6 +1249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db915b43eae87214b9a957132e171173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FirstNamesMale: []
+  FirstNamesFemale: []
+  LastNames: []
+  LocationNames: []
 --- !u!1001 &1912182456
 PrefabInstance:
   m_ObjectHideFlags: 0
