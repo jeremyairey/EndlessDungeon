@@ -102,8 +102,14 @@ public class GeneratePlayField : MonoBehaviour
     public void  ProcessButton()
     {
 
-        Debug.Log(player.FirstNamesFemale[Random.Range(1,30)] + " " + player.LastNames[Random.Range(1, 50)] + " of " + player.LocationNames[Random.Range(1, 18)]);
+
+        int firstEntry = Random.Range(1, player.FirstNamesFemale.Length);
+        int lastEntry = Random.Range(1, player.LastNames.Length);
+        int locationEntry = Random.Range(1, player.LocationNames.Length);
         
+                    Debug.Log(player.FirstNamesFemale[firstEntry] + " " + player.LastNames[lastEntry] + " of " + player.LocationNames[locationEntry]);
+        Debug.Log("[" + firstEntry + "][" + lastEntry + "][" + locationEntry + "]");
+                
 
     }
 

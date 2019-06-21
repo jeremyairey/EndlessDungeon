@@ -1,20 +1,100 @@
-Brightforest Watchtower
-The Emerald Post
+Emerald Post
 Blood's Isle
 Independence Tower
-The Black Sanctum
-The Hallow Estate
-The Ornament
-The Sanctum
-The Animus
-The Matriarch
+Black Sanctum
+Sanctum
+Animus
 Chiattodore
 Kleappealar
 Pliqioria
 Eapotika
 Plaegiather
-The Past Planet
-The Cosmic Vale
-The Argent Sea
-The Twin Terrain
-The Fate Realms
+Past Planet
+Cosmic Vale
+Frozen Highland
+Plain Highland
+Cardburg Mountains
+Carllow Tops
+Rugrane Pinnacle
+Notbrook Mountains
+Canterpool Mountain
+Sandbar Beach
+Southern Seafront
+Giant Coast
+Sandbar Point
+Jade Shore
+Gravengrave Sands
+Elmbury Beach
+Harcastle Shore
+Casdiac Coast
+Rombalt Shore
+Castlefort
+Scorchfield
+Claymore
+Brittlewallow
+Ebonpass
+Clearwood
+Rockholde
+Lasthorn
+Ironburn
+Dusthall
+Boulderfall
+Eaglespell
+Wolfdenn
+Oakenbury
+Angelfell
+Lagoonpond
+Evergrove
+Dimgarde
+Nightgrove
+Dustcrest
+Oldtide
+Starscar
+Chillmount
+Castlemeadow
+Ironhorn
+Misthill
+Arrowvalley
+Chillwind
+Limevault
+Dawnbourne
+Pureharbor
+Deepfair
+Demonbarrow
+Rimebell
+Dimscar
+Southwick
+Embervalley
+Diregate
+Silkwich
+Edgemond
+Windacre
+Arrowfall
+Rimehand
+Mistfair
+Stormfair
+Ironstall
+Crystalmoor
+Fairacre
+Crowvale
+Lostbourne
+Knightacre
+Darkmere
+Gloomshade
+Flatshore
+Ragereach
+Dimvault
+Midspire
+Ironside
+Rosehand
+Steamgarde
+Oakenwall
+Dawnfell
+Fallmire
+Rustfront
+Rustmond
+Duskport
+Snowbury
+Grimewatch
+Bellrun
+Maplepost
