@@ -12,9 +12,10 @@ using System.IO;
 
 public class GeneratePlayField : MonoBehaviour
 {
+    [SerializeField] private Canvas canvas;
+
     public TileContainer ButtonTiles;
-
-
+    
     public GameObject[] Tiles;
     public enum TileLocked { Locked, Open};
 
@@ -85,6 +86,10 @@ public class GeneratePlayField : MonoBehaviour
                 g.transform.localPosition = new Vector2(currentX, currentY);
                 g.transform.localScale = new Vector3(buttonSizeX / tilePrefab.GetComponent<RectTransform>().rect.width, buttonSizeY / tilePrefab.GetComponent<RectTransform>().rect.height, parentRef.transform.localScale.z);
                 g.gameObject.name = "Tile_" + count;
+                //g.gameObject.AddComponent<ItemSlot>();  //make it so we can drag and drop this as a receptacle.
+                //g.gameObject.AddComponent<DragDrop>();  //make it so we can drag and drop this as an object.
+                g.gameObject.GetComponent<DragDrop>().SetCanvas(canvas);
+                                       
 
                 tileObjects.Add(g);
                 //Debug.Log(parentRef.transform.localScale);
@@ -158,7 +163,7 @@ public class GeneratePlayField : MonoBehaviour
 
         tileObjects[tileindex].GetComponentInChildren<Text>().text= ButtonTiles.Tiles[tileindex].Name;
 
-        Debug.Log(ButtonTiles.Tiles[tileindex].Name);
+        //Debug.Log(ButtonTiles.Tiles[tileindex].Name);
 
 
         //  TileRecord[index].TileName = ThisTile.Tiles[gameTile._tileID].Name;
