@@ -21,8 +21,12 @@ public class GeneratePlayField : MonoBehaviour
 
     public GameObject parentRef;
     public GameObject tilePrefab;  //Playfield tile.
+    public GameObject tileFrame;   //frame for tiles to pop in
 
     public List<GameObject> tileObjects = new List<GameObject>();
+    public List<GameObject> tileFrames= new List<GameObject>();
+
+
 
     public int Columns=3;  // How many across
     public int Rows = 3;   // How many down
@@ -41,8 +45,6 @@ public class GeneratePlayField : MonoBehaviour
     void Start()
     {
         
-
-
         float adjWidth;
         float adjHeight;
         float currentX = posX;
@@ -55,56 +57,66 @@ public class GeneratePlayField : MonoBehaviour
 
         float buttonSizeX = adjWidth / Columns;
         float buttonSizeY = adjHeight / Rows;
-
-
-        //Debug.Log("button size X " + buttonSizeX);
-        //Debug.Log("button size Y " + buttonSizeY);
-        //Debug.Log("adj Width " + tilePrefab.GetComponent<RectTransform>().rect.width);
-        //Debug.Log("adj Height " + tilePrefab.GetComponent<RectTransform>().rect.height);
-        //Debug.Log("current X " + currentX);
-        //Debug.Log("current Y " + currentY);
-
-                        
-        int count = 0;
-               
         stepX = buttonSizeX+spacer;
         stepY = buttonSizeY+spacer;
 
 
-        for (int i=0; i< Rows; i++)
+        PopulateFieldTiles(tileFrame, tileFrames, buttonSizeX, buttonSizeY, currentX, currentY);
+        
+        //PopulateFieldTiles(tilePrefab, tileObjects, buttonSizeX, buttonSizeY, currentX, currentY);
+        //SetRarity();
+
+    }
+
+
+    /// <summary>
+    
+    /// <param name="myPrefab"></param>
+    /// <param name="myList"></param>
+    /// <param name="buttonSizeX"></param>
+    /// <param name="buttonSizeY"></param>
+    /// <param name="currentX"></param>
+    /// <param name="currentY"></param>
+    public void PopulateFieldTiles(GameObject myPrefab, List<GameObject> myList, float buttonSizeX, float buttonSizeY, float currentX, float currentY)
+    {
+        int count = 0;
+
+        for (int i = 0; i < Rows; i++)
         {
-            
-            for(int j=0; j< Columns; j++)
+
+            for (int j = 0; j < Columns; j++)
             {
 
                 count++;
-    
 
-                GameObject g = (GameObject)Instantiate(tilePrefab, transform.position, Quaternion.identity);
+
+                //GameObject g = (GameObject)Instantiate(tilePrefab, transform.position, Quaternion.identity);
+                GameObject g = (GameObject)Instantiate(myPrefab, transform.position, Quaternion.identity);
 
                 g.transform.SetParent(parentRef.transform); //false?
                 g.transform.localPosition = new Vector2(currentX, currentY);
-                g.transform.localScale = new Vector3(buttonSizeX / tilePrefab.GetComponent<RectTransform>().rect.width, buttonSizeY / tilePrefab.GetComponent<RectTransform>().rect.height, parentRef.transform.localScale.z);
-                g.gameObject.name = "Tile_" + count;
+                //g.transform.localScale = new Vector3(buttonSizeX / tilePrefab.GetComponent<RectTransform>().rect.width, buttonSizeY / tilePrefab.GetComponent<RectTransform>().rect.height, parentRef.transform.localScale.z);
+                g.transform.localScale = new Vector3(buttonSizeX / myPrefab.GetComponent<RectTransform>().rect.width, buttonSizeY / myPrefab.GetComponent<RectTransform>().rect.height, parentRef.transform.localScale.z);
+
+                g.gameObject.name = myPrefab.name + "_" + count;  //Tile_
+
                 //g.gameObject.AddComponent<ItemSlot>();  //make it so we can drag and drop this as a receptacle.
                 //g.gameObject.AddComponent<DragDrop>();  //make it so we can drag and drop this as an object.
-                g.gameObject.GetComponent<DragDrop>().SetCanvas(canvas);
-                                       
-
-                tileObjects.Add(g);
-                //Debug.Log(parentRef.transform.localScale);
-                //Debug.Log("Tile [ " + count + "]  X:" + currentX + " Y:" + currentY );
+                if (myPrefab.name == "PlayfieldTile") { g.gameObject.GetComponent<DragDrop>().SetCanvas(canvas); }
+                
+                myList.Add(g);
+                
                 currentX += stepX;
             }
             currentX = posX;
             currentY -= stepY;
         }
 
-        SetRarity();
-               
     }
 
-
+    /// <summary>
+    /// /
+    /// </summary>
     void SetRarity()
     {
 

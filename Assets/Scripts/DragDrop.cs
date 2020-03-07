@@ -74,8 +74,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-    itemToReceive = eventData.pointerCurrentRaycast.gameObject;
-    //Debug.Log(" Receive: " + itemToReceive.transform.parent.name);
-    
+        itemToReceive = eventData.pointerCurrentRaycast.gameObject;
+        //Debug.Log(" Receive: " + itemToReceive.transform.parent.name);
+
+        //Debug.Log(" Receive: " + eventData.pointerCurrentRaycast.gameObject.name);
+        
     }
 }
